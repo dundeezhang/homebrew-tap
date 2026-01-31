@@ -8,4 +8,9 @@ cask "attentionapp" do
   homepage "https://github.com/dundeezhang/attention-fix"
 
   app "AttentionApp.app"
+
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/AttentionApp.app"]
+  end
 end
